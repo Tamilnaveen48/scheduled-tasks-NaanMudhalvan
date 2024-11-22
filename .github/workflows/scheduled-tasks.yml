@@ -1,0 +1,17 @@
+ 
+name: Daily Backup Task
+
+on:
+  schedule:
+    - cron: '0 0 * * *'  # This means the task will run every day at midnight
+
+jobs:
+  backup:
+    runs-on: ubuntu-latest  # You can use other environments like windows-latest or macos-latest
+
+    steps:
+      - name: Checkout the repository
+        uses: actions/checkout@v2
+
+      - name: Run backup script
+        run: bash ./backup-script.sh

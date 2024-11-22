@@ -1,4 +1,3 @@
- 
 name: Daily Backup Task
 
 on:
@@ -7,11 +6,12 @@ on:
 
 jobs:
   backup:
-    runs-on: ubuntu-latest  # You can use other environments like windows-latest or macos-latest
+    runs-on: windows-latest  # Use Windows runner
 
     steps:
       - name: Checkout the repository
         uses: actions/checkout@v2
 
-      - name: Run backup script
-        run: bash ./backup-script.sh
+      - name: Run PowerShell backup script
+        run: |
+          pwsh ./backup-script.ps1
